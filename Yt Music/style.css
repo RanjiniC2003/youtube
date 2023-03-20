@@ -1,0 +1,296 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+body{
+   background-color: black;
+   font-family: Roboto,Noto Naskh Arabic UI,Arial,sans-serif;
+}
+.yt-music-items{
+    color: white;
+}
+.yt-music-logo{
+    background-size:100% 100% ;
+    height: 41px;
+    width: 41px;
+    object-fit: cover;
+}
+.main-header>span{
+    color: white;
+    font-size: 23px;
+    font-weight: 600;
+    margin-top: 6px;
+}
+.whole-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
+.main-header{
+    margin-left: 10px;
+}
+.main-header,.yt-music-items{
+    display: flex;
+}
+.search{
+    transition: all 0.3s;
+}
+.active{
+    margin-right: 53px;
+}
+.inactive,.active{
+     margin-right: 53px;
+    font-size: 20px;
+    color: #ffffffab;
+    transition: all 0.3s;
+}
+.sign-in{
+    background-color: white;
+    padding: 9px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 15px;
+}
+.sign-theme{
+    margin-right: 25px;
+    display: flex;
+    align-items: center;
+    height: 35px;
+}
+.search-main{
+    font-size: 20px;
+    color: #ffffffab;
+    transition: all 0.3s;
+    margin-left:15px;
+}
+.search:hover .search-main,.search:hover .fa-magnifying-glass{
+    color: white;
+}
+.fa-magnifying-glass{
+    color:#ffffffab ;
+}
+.top{
+    width: 100%;
+    position: fixed;
+    background-color: black;
+    height: 85px;
+    height: 64px;
+    overflow: hidden;
+    z-index: 100;
+}
+.sign-in-page{
+    position: fixed;
+    z-index: 200;
+    box-shadow: 0 8px 10px 1px rgb(0 0 0 / 14%), 0 3px 14px 2px rgb(0 0 0 / 12%), 0 5px 5px -3px rgb(0 0 0 / 40%);
+    background-color: rgb(33, 33, 33);
+    left: 78%;
+    top: 10%;
+    padding:22px;
+    color: white;
+    border-radius: 8px;
+    visibility:visible;
+    transform: translateX(150%);
+    transition: all 0.6s;
+}
+.signUpPage{
+    display: none;
+}
+#signInPage>h2,#signUpPage>h2{
+    font-weight: 100;
+    text-align: center;
+    margin-bottom: 14px;
+    font-size: 26px;
+    margin-top: 30px;
+}
+.sign-in-head,.sign-up-head{
+    text-align: center;
+    margin-bottom: 31px;
+    letter-spacing: 1px;
+    color: #ffffff75;
+}
+.sign-in-create{
+    color: #00bcd4a3;
+    margin-bottom: 31px;
+    letter-spacing: 1px;
+    cursor: pointer;
+}
+#signInPage,#signUpPage{
+    margin-top: 40px;
+    text-align: center;
+}
+.signInButton{
+    background: transparent;
+    border: none;
+    color: #ffffff8c;
+    font-size: 20px;
+}
+input[type=text] ,input[type=password],input[type=email]{
+  font-size: 16px;
+  padding: 12px 20px 12px 12px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  background-color: transparent;
+  outline: none;
+  margin-bottom: 22px;
+  color: #ffffffab;
+  border-radius: 5px;
+  width: 298px;
+}
+
+input[type=text]:focus,input[type=password]:focus,input[type=email]:focus {
+   border: 1px solid #3f51b57d;
+}
+.search-icon{
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+#arrow-search-microphone{
+    display: none;
+}
+#arrow-search-microphone-display{
+    display: flex;
+}
+#search-input-box{
+    box-shadow: 0 8px 10px 1px rgb(0 0 0 / 14%), 0 3px 14px 2px rgb(0 0 0 / 12%), 0 5px 5px -3px rgb(0 0 0 / 40%);
+    background-color: rgb(33, 33, 33);
+    width: 854px;
+}
+#left-arrow{
+    font-weight: 900;
+    color: #ffffff4f;
+    font-size: 21px;
+    width: 48px;
+    text-align: center;
+    cursor: pointer;
+}
+#search-input{
+    margin-bottom: 0px;
+    border: none;
+    font-size: 16px;
+    height: 48px;
+    width: 751px;
+    color: white;
+    font-weight: 600;
+}
+.search-items{
+    display: flex;
+    align-items: center;
+}
+#microphone{
+    width: 50px;
+    cursor: pointer;
+    height: 50px;
+    border-radius: 50%;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 8px 10px 1px rgb(0 0 0 / 14%), 0 3px 14px 2px rgb(0 0 0 / 12%), 0 5px 5px -3px rgb(0 0 0 / 40%);
+    background-color: rgb(33, 33, 33);
+    margin-left: 10px;
+    color: #ffffff73;
+}
+
+.microphone-popup{
+    display: none;
+/*    visibility:hidden;
+    transform: translateY(-100%);*/
+    position:fixed;
+    top: 10%;
+    left: 31%;
+    box-shadow: 0 8px 10px 1px rgb(0 0 0 / 14%), 0 3px 14px 2px rgb(0 0 0 / 12%), 0 5px 5px -3px rgb(0 0 0 / 40%);
+    background-color: rgb(33, 33, 33);
+    box-shadow: 0px 0px 5px #80808052;
+    width: 642px;
+    height: 450px;
+    padding: 23px;
+    z-index:101;
+/*     transition: .3s ease;*/
+    /*transform: scale(0);*/
+}
+
+
+.speaknow{
+   /* visibility: visible;
+    transition: .3s ease;
+    transform:translateY(0%);*/
+    display: block;
+}
+.listening {
+    font-size: 28px;
+    font-weight: 100;
+    letter-spacing: 1px;
+    margin-top: 25px;
+    color: white;
+    flex-grow: 1;
+}
+.speak-close {
+    float: right;
+    font-size: 28px;
+    position: absolute;
+    top: 28px;
+    color: white;
+    left: 93%;
+    cursor: pointer;
+}
+.speaker-image {
+    height: 65px;
+    width: 351px;
+    color: white;
+    position: absolute;
+    top: 34%;
+    left: 10%;
+}
+.mic-container {
+    width: 600px;
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    position: relative;
+}
+.mic-item {
+    z-index: 1;
+    align-items: center;
+    display: flex;
+    height: 65px;
+    background-color: red;
+    border-radius: 50%;
+    width: 65px;
+    justify-content: center;
+}
+.circle{
+    border-radius: 50%;
+    background-color: #ffffff4d;
+    width: 70px;
+    height: 70px;
+    position: absolute;
+    opacity: 0;
+    animation: scaleIn 4s 5 cubic-bezier(.36, .11, .89, .32);
+}
+#tryAgain {
+    color: rgba(255, 255, 255, 0.57);
+    font-size: 16px;
+    font-weight: 100;
+    position: absolute;
+    top: 90%;
+    left: 40%;
+    display: none;
+}
+
+
+@keyframes scaleIn {
+  from {
+    transform: scale(.5, .5);
+    opacity: .5;
+  }
+  to {
+    transform: scale(2.5, 2.5);
+    opacity: 0;
+  }
+}

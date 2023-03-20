@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>YT music</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+  <link href="style/yt.css" rel="stylesheet" type="text/css" />
+  <link type="image/icon" href="images/logo.png" rel="shortcut icon">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0..1,0" rel="stylesheet" />
+  <script src="https://kit.fontawesome.com/b5848efe47.js" crossorigin="anonymous"></script>
+</head>
+<body>
+  <div class="top" id="top">
+  <div class="whole-container">
+    <div class="main-header">
+      <img class="yt-music-logo" src="images/logo.png"> 
+      <span>Music</span>
+    </div>
+    <div class="yt-music-items">
+      <h3 class="header-button pageHeadColor active inactive" onclick="homePage(0)">Home</h3>
+      <h3 class="header-button inactive" onclick="explore(1)">Explore</h3>
+      <h3 class="header-button inactive library" onclick="library(2)">Library</h3>
+      <div class="search" onclick="serchBox()">
+        <div class="search-icon">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <h3 class="search-main">Search</h3>
+        </div>
+      </div>
+      <div id="arrow-search-microphone">
+        <div id="arrow-search-microphone-display">
+          <div id="search-input-box">
+            <div class="search-items">
+              <div id="left-arrow" onclick="goBack()">
+                <i class="fa-solid fa-arrow-left-long"></i>
+              </div>
+              <input type="text" name="search-input" id="search-input" placeholder="Search" value="">
+              <div id="searchSong" onclick="searchSong()">
+                <i class="fa-solid fa-magnifying-glass"></i>
+              </div>
+            </div>
+          </div>
+          <div id="microphone" onclick="speaknow()">
+            <i class="fa-solid fa-microphone"></i>
+          </div> 
+        </div> 
+      </div>
+    </div>
+    <div class="sign-theme">
+     <!--  <img class="theme" src="images/moon.png"> -->
+      <div class="sign-in" id="signPopup" onclick="signPopup()">SIGN IN</div>
+      <div class="profile" id="profile"></div>
+    </div>
+  </div>
+</div>
+<div id="sign-in-page" class="sign-in-page">
+  <div id="closeIcon" onclick="closeIcon()">
+    <span class="material-symbols-outlined" >close</span>
+  </div>
+  <div id="signInPage">
+    <h2>Sign in</h2>
+    <p class="sign-in-head">to continue to YouTube Music</p>
+    <form>
+
+      <input name="userName" id="userName" type="email" placeholder="Email or phone" required autocomplete="off" />
+      <br>
+      <input type="password" name="password" id="password" placeholder="Password" required autocomplete="off">
+      <p class="sign-in-create" onclick="createAccount()">Create account</p>
+      <button class="signInButton" id="checkValue1">Sign in </button>
+    </form>
+  </div>
+  <div id="signUpPage" class="signUpPage">
+    <h2>Sign up</h2>
+    <p class="sign-up-head">to continue to YouTube Music</p>
+    <form class="signinForm">
+      <input type="text" id="name" name="name" placeholder="Enter your Name" required autocomplete="off">
+      <input name="userName" id="user" type="email" placeholder="Enter Email" required autocomplete="off" />
+      <br>
+      <input type="password" name="password" id="pass" placeholder="Enter Password" required autocomplete="off">
+      <br>
+      <button class="signInButton" id="checkValue2">Sign up</button>
+    </form>
+  </div>
+  <div id="signOut">
+    <div class="profName">
+      <div class="prof"></div>
+      <div id="profileName"></div>
+    </div>
+    <div  onclick="signOutpage()" class="signOutIcon">
+      <span class="material-symbols-outlined">logout</span>
+      <button id="signOutButton">Sign out</button>
+    </div>
+  </div>
+</div>
+<div class="microphone-popup" id="m-popup">
+      <h3 id="listening" class="listening">Listening....</h3>
+      <div class="speak-close" id="speak-close" onclick="removeSpeacker()">
+        <span class="material-symbols-outlined" >close</span>
+      </div>
+      <div class="speaker-image">
+        <div class="mic-container">
+          <div id="mic-image" class="mic-item" onclick="resetMike()">
+            <i class="fa-solid fa-microphone"></i>
+          </div>
+          <div class="circle" style="animation-delay: 0s"></div>
+          <div class="circle" style="animation-delay: 1s"></div>
+          <div class="circle" style="animation-delay: 2s"></div>
+          <div class="circle" style="animation-delay: 3s"></div>
+        </div>
+      </div>
+      <h5 id="tryAgain">Tap microphone to try again</h5>
+    </div>
+
+
+  <div id="mainPage">
+  <div id="homePages">
+    <div class="quickPicks">
+      <p>START RADIO FROM A SONG</p>
+      <div class="quickHeadArrow">
+        <h1>Quick picks</h1>
+        <div class="moveArrowQuick" id="moveArrowQuick">
+          <div class="QuickmoveArrowLeft" id="QuickmoveArrowLeft" onclick="moveListBack('quickPicksVideos')">
+              <span class="material-symbols-outlined">chevron_left</span>
+            </div>
+            <div class="QuickmoveArrowRight" id="QuickmoveArrowRight" onclick="moveListForward('quickPicksVideos')">
+              <span class="material-symbols-outlined">chevron_right</span>
+          </div>
+        </div>
+      </div>
+      <div class="quickPicksVideosMain" id="quickPicksVideosMain">
+        <div id="quickPicksVideos"></div>
+      </div>
+    </div>
+    <div class="Recommended-video-container">
+      <div class="recHeadArrow">
+        <h1>Discover something new</h1>
+        <div class="moveArrow" id="moveArrow">
+          <div class="moveArrowLeft" id="moveArrowLeft" onclick="moveListBack('videos-container')">
+            <span class="material-symbols-outlined">chevron_left</span>
+          </div>
+          <div class="moveArrowRight" id="moveArrowRight" onclick="moveListForward('videos-container')">
+            <span class="material-symbols-outlined">chevron_right</span>
+          </div>
+        </div>
+      </div>
+       <div class="videos-container" id="videos-container">
+         <div id="scrollRecVideo"></div>
+       </div>
+    </div>
+  <div class="loveSongs">
+    <div class="loveSgHeadArrow">
+      <h1>Time to Party</h1>
+
+      <div class="moveArrowlove" id="moveArrowlove">
+        <div class="rockmoveArrowLeft" id="rockmoveArrowLeft" onclick="moveListBack('rocksongsAllList')">
+            <span class="material-symbols-outlined">chevron_left</span>
+        </div>
+        <div class="rockmoveArrowRight" id="rockmoveArrowRight" onclick="moveListForward('rocksongsAllList')">
+          <span class="material-symbols-outlined">chevron_right</span>
+        </div>
+        <div></div>
+      </div>
+
+    </div>
+    <div class="rocksongsAllList" id="rocksongsAllList"> 
+      <div class="rocksongsList" id="rocksongsList"></div>
+    </div>
+  </div>
+
+
+  <div class="loveSongs">
+    <div class="loveSgHeadArrow">
+      <h1>Happy Vibes</h1>
+
+      <div class="moveArrowlove" id="moveArrowlove">
+        <div class="happymoveArrowLeft" id="happymoveArrowLeft" onclick="moveListBack('happysongsAllList')">
+            <span class="material-symbols-outlined">chevron_left</span>
+        </div>
+        <div class="happymoveArrowRight" id="happymoveArrowRight" onclick="moveListForward('happysongsAllList')">
+          <span class="material-symbols-outlined">chevron_right</span>
+        </div>
+        <div></div>
+      </div>
+
+    </div>
+    <div class="happysongsAllList" id="happysongsAllList"> 
+      <div class="happysongsList" id="happysongsList"></div>
+    </div>
+  </div>
+
+
+  <div class="loveSongs">
+    <div class="loveSgHeadArrow">
+      <h1>Evergreen Melodies</h1>
+
+      <div class="moveArrowlove" id="moveArrowlove">
+        <div class="melodymoveArrowLeft" id="melodymoveArrowLeft" onclick="moveListBack('melodysongsAllList')">
+            <span class="material-symbols-outlined">chevron_left</span>
+        </div>
+        <div class="melodymoveArrowRight" id="melodymoveArrowRight" onclick="moveListForward('melodysongsAllList')">
+          <span class="material-symbols-outlined">chevron_right</span>
+        </div>
+        <div></div>
+      </div>
+
+    </div>
+    <div class="melodysongsAllList" id="melodysongsAllList"> 
+      <div class="melodysongsList" id="melodysongsList"></div>
+    </div>
+  </div>
+  <div class="loveSongs">
+    <div class="loveSgHeadArrow">
+      <h1>High on Love</h1>
+
+      <div class="moveArrowlove" id="moveArrowlove">
+        <div class="lovemoveArrowLeft" id="lovemoveArrowLeft" onclick="moveListBack('lovesongsAllList')">
+            <span class="material-symbols-outlined">chevron_left</span>
+        </div>
+        <div class="lovemoveArrowRight" id="lovemoveArrowRight" onclick="moveListForward('lovesongsAllList')">
+          <span class="material-symbols-outlined">chevron_right</span>
+        </div>
+        <div></div>
+      </div>
+
+    </div>
+    <div class="lovesongsAllList" id="lovesongsAllList"> 
+      <div class="lovesongsList" id="lovesongsList"></div>
+    </div>
+  </div>
+
+  <div class="loveSongs">
+    <div class="loveSgHeadArrow">
+      <h1>Console your heart</h1>
+
+      <div class="moveArrowlove" id="moveArrowlove">
+        <div class="sadmoveArrowLeft" id="sadmoveArrowLeft" onclick="moveListBack('sadsongsAllList')">
+            <span class="material-symbols-outlined">chevron_left</span>
+        </div>
+        <div class="sadmoveArrowRight" id="sadmoveArrowRight" onclick="moveListForward('sadsongsAllList')">
+          <span class="material-symbols-outlined">chevron_right</span>
+        </div>
+        <div></div>
+      </div>
+
+    </div>
+    <div class="sadsongsAllList" id="sadsongsAllList"> 
+      <div class="sadsongsList" id="sadsongsList"></div>
+    </div>
+  </div>
+</div>
+<div id="explorePage">
+  <div class="trending">
+    <div class="trendingHeadArrow">
+        <h1>Trending Videos</h1>
+        <div class="moveArrowtrending" id="moveArrowtrending">
+          <div class="trendingmoveArrowLeft" id="trendingmoveArrowLeft" onclick="moveListBack('trendingVideos')">
+              <span class="material-symbols-outlined">chevron_left</span>
+            </div>
+            <div class="trendingmoveArrowRight" id="trendingmoveArrowRight" onclick="moveListForward('trendingVideos')">
+              <span class="material-symbols-outlined">chevron_right</span>
+          </div>
+        </div>
+      </div>
+      <div class="trendingVideosMain" id="trendingVideosMain">
+        <div id="trendingVideos"></div>
+      </div>
+  </div>
+  <div class="NewMusicVideos">
+    <div class="NewMusicVideosHeadArrow">
+        <h1>New Music Videos</h1>
+        <div class="moveArrowNewMusicVideos" id="moveArrowNewMusicVideos">
+          <div class="NewMusicVideosmoveArrowLeft" id="NewMusicVideosmoveArrowLeft" onclick="moveListBack('NewMusicVideosVideosMain')">
+              <span class="material-symbols-outlined">chevron_left</span>
+            </div>
+            <div class="NewMusicVideosmoveArrowRight" id="NewMusicVideosmoveArrowRight" onclick="moveListForward('NewMusicVideosVideosMain')">
+              <span class="material-symbols-outlined">chevron_right</span>
+          </div>
+        </div>
+      </div>
+      <div class="NewMusicVideosVideosMain" id="NewMusicVideosVideosMain">
+        <div id="newMusicVideosVideos"></div>
+      </div>
+  </div>
+</div>
+<div id="libraryPage">
+  <div class="recentActivity" id="recentActivity">
+    <div class="recentActivityHeadArrow">
+      <h1>Recent activity</h1>
+      <div class="moveArrow" id="moveArrow">
+        <div class="libraryArrowLeft" id="libraryArrowLeft" onclick="moveListBack('libraryVideosVideosMain')">
+            <span class="material-symbols-outlined">chevron_left</span>
+        </div>
+        <div class="libraryArrowRight" id="libraryArrowRight" onclick="moveListForward('libraryVideosVideosMain')">
+          <span class="material-symbols-outlined">chevron_right</span>
+        </div>
+      </div>
+    </div>
+    <div class="libraryVideosVideosMain" id="libraryVideosVideosMain">
+      <div id="libraryVideos"></div>
+    </div>
+  </div>
+  <div class="likesVideos" id="likesVideos">
+    <div class="LikeVideoHeadArrow">
+      <h1>Like Videos</h1>
+      <div class="moveArrow" id="moveArrow">
+        <div class="LikeArrowLeft" id="LikeArrowLeft" onclick="moveListBack('likeVideosVideosMain')">
+            <span class="material-symbols-outlined">chevron_left</span>
+        </div>
+        <div class="LikeArrowRight" id="LikeArrowRight" onclick="moveListForward('likeVideosVideosMain')">
+          <span class="material-symbols-outlined">chevron_right</span>
+        </div>
+      </div>
+    </div>
+    <div class="likeVideosVideosMain" id="likeVideosVideosMain">
+      <div id="likeVideosDiv"></div>
+    </div>
+  </div>
+  <div class="playListDetails">
+    <h1>PlayList</h1>
+    <div id="newPlayList">
+      <div class="newPlayListDiv">
+        <div title="New Playlist" id="playlistOpenPopup"></div>
+        <span class="material-symbols-outlined" id="playAdd">add</span>
+        <p>New playlist</p>
+      </div>
+    </div>
+  </div>
+  
+</div>
+
+</div>
+
+
+
+
+//video play page
+
+
+<div class="videoPlayPage" id="videoPlayPage">
+  <div class="setVideo-middle video_close" id="setVideo-middle">
+    <div class="video-tag" id="v-t"> 
+      <div class="video_opacity">
+        <div class="opacity_box"></div>
+        <video id="video-tag-play" onclick="VideoClickPlay()" class="video-tag-play" src="" autoplay></video>
+        
+        <div id="videoFullScreen" title="Fullscreen" onclick="toggleFullScreen()">
+          <span class="material-symbols-outlined">fullscreen</span>
+        </div>
+        <div class="videoSize" onclick="videoSize()" id="videoSize">
+          <span class="material-symbols-outlined" id="miniPlay" title="Open mini player">magnification_small</span>
+        </div>
+      </div>
+    </div>
+    <div class="smallListDiv" id="smallListDiv">
+      <div class="smallVideoListHead">
+        <p class="smallVideoListHead1" id="smallVideoListHead1" onclick="upNext()">UP NEXT</p>
+        <p class="smallVideoListHead3" id="smallVideoListHead3" onclick="lyrics()">LYRICS</p>
+        <p class="smallVideoListHead2" id="smallVideoListHead2" onclick="related()">RELATED</p>
+      </div>
+      <div class="video-list-upnext-related" id="video-list-upnext-related" >
+        <div class="smallVideoListHeadings">
+            <div id="all" class="all listHeads listItemchange" onclick="allList(0)">All</div>
+            <div id="discover" class="listHeads discover" onclick="discover(1)">Similar</div>
+            <div id="popular" class="listHeads popular" onclick="Popular(2)">Popular</div>
+            <div id="Newreleases" class="listHeads Newreleases" onclick="Newreleases(3)">New releases</div>
+            <div id="year1" class="listHeads year1" onclick="year1(4)">2020s</div>
+            <div id="year2" class="listHeads year2" onclick="year2(5)">2010s</div>
+            <div id="year3" class="listHeads year3" onclick="year3(6)">2000s</div>
+          </div>
+        <div class="video-list" id="video-list"></div>
+      </div>
+      <div class="lyricslist" id="lyricslist">
+        <h3>Lyrics not available</h3>
+        <p>If the song has lyrics, they'll show up here when they become available</p>
+      </div>
+      <div class="relatedVideos" id="relatedVideos">
+        <div class="relatedVideosDetails" id="relatedVideosDetails"></div>
+      </div>
+    </div>
+  </div>
+
+
+</div>
+
+<div id="footer" class="footer">
+   <!--  <div id="myProgress">
+      <div id="myBar"></div>
+    </div> -->
+    <div id="progressBarHover"></div>
+    <input type="range" id="playVideoBar" min="0" max="100" step="0.1"value="0">
+    <div class="footer-items">
+      <div class="footer-left">
+        <span class="material-symbols-outlined skip-back icon-filled" title="Previous song" onclick="playbackward()" id="playbackward">skip_previous</span>
+        <span class="material-symbols-outlined icon-filled" id="play-button" onclick="playPause()" title="play">pause</span>
+        <span class="material-symbols-outlined skip-next icon-filled" onclick="playforward()" id="playforward" title="Next song">skip_next</span>
+
+        <p id="playTimeSong"></p>
+      </div>
+      <div class="footer-middle">
+        <img src="" id="listPlaySongImg"/>
+        <div class="smallListSongDetail">
+          <p id="smallListSongTitle"></p>
+          <p id="smallListSongChannel"></p>
+        </div>
+        <div class="thumbs">
+          <div class="thumbupDiv">
+            <span class="material-symbols-outlined icon-stroked thumbUp" id="thumbUp"onclick="thumbup()">thumb_up</span>
+          </div>
+          <div class="thumbdownDiv">
+            <span class="material-symbols-outlined icon-stroked thumbDown" id="thumbDown" onclick="thumbDown()">thumb_down</span>
+          </div>
+          <div class="playListIcon" onclick="playListIcon()">
+            <span class="material-symbols-outlined" id="playLIstAddIcon" title="Add to playlist">playlist_add</span>
+          </div>
+        </div>
+      </div>
+      <div class="footer-right">
+        <input type="range" min="0" max="100" id="volumeRange" value="50" step="1" />
+        <span class="material-symbols-outlined icon-filled" id="volume" onclick="volumes()">volume_up</span>
+        <span class="material-symbols-outlined repeat" id="repeat" onclick="repeat()">repeat</span>
+        <span class="material-symbols-outlined shuffle" onclick="shuffleSongs()" id="shuffle">shuffle</span>
+        <span class="material-symbols-outlined icon-filled" id="toggle_arrow" onclick="toggleVideoPage()" >arrow_drop_down</span>
+        <div class="closefullscreen" onclick="toggleFullScreen()" title="Exit Full screen" id="closeFullscreen">
+           <span class="material-symbols-outlined">fullscreen_exit</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  
+<div id="searchSongDiv" class="searchSongDiv">
+  <div id="searchSongDiv-Container"></div>
+</div>
+
+
+<div id="playListPopup">
+    <h3>New playlist</h3>
+    <form>
+      <input type="text" name="playlistText" id="playlistText" placeholder="Title" required autocomplete="off">
+      <br>
+      <input type="text" name="playlistDescription" id="playlistDescription" placeholder="Description">
+      <div class="cancelCreate">
+        <p id="playListCancel">CANCEL</p>
+        <button id="playListCreate">CREATE</button>
+      </div>
+    </form>
+  </div>
+
+
+  <div id="playlistdetailpopup">
+    <div class="playlistdetailpopuphead">
+      <h3>Add to playlist</h3>
+      <span class="material-symbols-outlined" id="playListPushClose" onclick="playListPopupClose()">close</span>
+    </div>
+    <div id="playlistdetailpopuphead1">
+      <div id="listsPush">
+        <!-- <p>All playlists</p> -->
+      </div>
+      <div id="newPlayListButton" class="newPlayListButton">
+        <div id="playListBut" onclick="playListBut()">
+          <span class="material-symbols-outlined">add</span>
+          <div>NEW PLAYLIST</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <script src="script.js"></script>
+  <script src="script/yt.js"></script>
+  <script src="script2.js" type="text/javascript"></script>
+
+</body>
+</html>
